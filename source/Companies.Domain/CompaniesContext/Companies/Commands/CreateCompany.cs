@@ -6,7 +6,7 @@ namespace Companies.Domain.CompaniesContext.Companies.Commands
 {
     public class CreateCompany
     {
-        public CnpjModel Cnpj { get; set; }
+        public string Cnpj { get; set; }
         public string Name { get; set; }
         public string CompanyName { get; set; }
         public AddressModel Address { get; set; }
