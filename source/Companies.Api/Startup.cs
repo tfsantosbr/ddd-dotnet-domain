@@ -1,15 +1,12 @@
+using Companies.Domain.CompaniesContext.Companies;
+using Companies.Domain.CompaniesContext.Companies.Commands;
+using Companies.Domain.CompaniesContext.Companies.Handlers;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Companies.Api
 {
@@ -25,8 +22,10 @@ namespace Companies.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
+            services.AddMediatR(typeof(Startup));
+
+            services.AddTransient<IRequestHandler<CreateCompany, Company>, CreateCompanyHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
