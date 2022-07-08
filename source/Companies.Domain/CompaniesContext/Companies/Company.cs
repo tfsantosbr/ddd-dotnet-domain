@@ -43,7 +43,7 @@ namespace Companies.Domain.CompaniesContext.Companies
 
         public void Active()
         {
-            IsAIsActive = true;
+            IsActive = true;
         }
     }
 }
