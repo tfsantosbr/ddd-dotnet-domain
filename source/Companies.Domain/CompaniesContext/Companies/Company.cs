@@ -17,6 +17,7 @@ namespace Companies.Domain.CompaniesContext.Companies
             Name = name;
             CompanyName = companyName;
             Address = address;
+            IsActive = true;
 
             AddActivity(mainActivity);
         }
@@ -27,6 +28,7 @@ namespace Companies.Domain.CompaniesContext.Companies
         public string CompanyName { get; private set; }
         public Address Address { get; private set; }
         public IReadOnlyCollection<CompanyActivity> Activities => activities.AsReadOnly();
+        public bool IsActive { get; private set; }
 
         public void AddActivity(CompanyActivity activity)
         {
@@ -37,6 +39,11 @@ namespace Companies.Domain.CompaniesContext.Companies
             }
 
             activities.Add(activity);
+        }
+
+        public void Active()
+        {
+            IsAIsActive = true;
         }
     }
 }
